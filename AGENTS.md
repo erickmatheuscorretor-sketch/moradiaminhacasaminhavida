@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application rules
+- Use shared housing layout and section components for public pages; each content route defines its own metadata to keep navigation and sharing consistent.
+- Validate housing submissions with the shared Zod schema on both client and server, then insert through a public write-only server function; keep lead data inaccessible to visitors.
+- Treat the digital product offer as demonstrative until a real checkout and deliverable are supplied; never simulate payment or delivery.
