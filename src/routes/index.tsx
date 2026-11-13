@@ -1,23 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { ArrowRight, ShieldCheck, BookOpen, Heart, House, Check } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { HowItWorks, Benefits } from '@/components/housing-sections';
+import { BottomCTA, metadata } from '@/components/housing-layout';
+import neighborhood from '@/assets/housing-neighborhood.jpg';
+export const Route = createFileRoute('/')({ head: () => metadata('Seu sonho da casa própria pode estar mais perto!', 'Conheça informações sobre oportunidades habitacionais, critérios de elegibilidade e programas de acesso à moradia.'), component: Index });
+function Index() { return <><section className="housing-hero"><img className="hero-photo" src={neighborhood} width={1920} height={1024} alt="Casas populares com jardins e uma família brasileira" fetchPriority="high"/><div className="hero-shade"/><div className="site-width"><div className="hero-copy"><div className="eyebrow hero-eyebrow"><House className="size-3.5"/> UM NOVO OLHAR PARA O SEU FUTURO</div><h1>Seu sonho da<br/>casa própria pode<br/>estar <span>mais perto!</span></h1><p>Conheça informações sobre oportunidades habitacionais, critérios de elegibilidade e programas de acesso à moradia.</p><Button asChild variant="participation" size="cta" className="hero-cta"><Link to="/cadastro">QUERO PARTICIPAR <ArrowRight className="ml-5"/></Link></Button><div className="hero-reassurance"><ShieldCheck className="size-3.5"/>Cadastro gratuito e seus dados protegidos.</div></div></div><div className="hero-label"><div className="text-success bg-success-soft p-2.5 rounded-full"><Heart className="size-6"/></div><div><strong>Um sonho que acolhe toda a família.</strong><small>O seu próximo capítulo pode começar aqui.</small></div></div></section><section className="trust-band"><div className="site-width grid grid-cols-2 md:grid-cols-4">{[{icon:BookOpen,title:'Informação acessível',text:'Clareza em cada etapa'}, {icon:ShieldCheck,title:'Privacidade em primeiro lugar',text:'Tratamento conforme a LGPD'}, {icon:House,title:'Foco na sua realidade',text:'Um olhar para o seu perfil'}, {icon:Check,title:'Conteúdo independente',text:'Transparência desde o início'}].map(t=><div className="trust-item" key={t.title}><t.icon/><div><strong>{t.title}</strong><small>{t.text}</small></div></div>)}</div></section><HowItWorks/><Benefits/><BottomCTA/></>; }

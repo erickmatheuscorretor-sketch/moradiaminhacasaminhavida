@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BeneficiosRouteImport } from './routes/beneficios'
+import { Route as CadastroRouteImport } from './routes/cadastro'
+import { Route as ComoFuncionaRouteImport } from './routes/como-funciona'
+import { Route as MaterialRouteImport } from './routes/material'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BeneficiosRoute = BeneficiosRouteImport.update({
+  id: '/beneficios',
+  path: '/beneficios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CadastroRoute = CadastroRouteImport.update({
+  id: '/cadastro',
+  path: '/cadastro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComoFuncionaRoute = ComoFuncionaRouteImport.update({
+  id: '/como-funciona',
+  path: '/como-funciona',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaterialRoute = MaterialRouteImport.update({
+  id: '/material',
+  path: '/material',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/beneficios': typeof BeneficiosRoute
+  '/cadastro': typeof CadastroRoute
+  '/como-funciona': typeof ComoFuncionaRoute
+  '/material': typeof MaterialRoute
+  '/privacidade': typeof PrivacidadeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/beneficios': typeof BeneficiosRoute
+  '/cadastro': typeof CadastroRoute
+  '/como-funciona': typeof ComoFuncionaRoute
+  '/material': typeof MaterialRoute
+  '/privacidade': typeof PrivacidadeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/beneficios': typeof BeneficiosRoute
+  '/cadastro': typeof CadastroRoute
+  '/como-funciona': typeof ComoFuncionaRoute
+  '/material': typeof MaterialRoute
+  '/privacidade': typeof PrivacidadeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/beneficios'
+    | '/cadastro'
+    | '/como-funciona'
+    | '/material'
+    | '/privacidade'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/beneficios'
+    | '/cadastro'
+    | '/como-funciona'
+    | '/material'
+    | '/privacidade'
+  id:
+    | '__root__'
+    | '/'
+    | '/beneficios'
+    | '/cadastro'
+    | '/como-funciona'
+    | '/material'
+    | '/privacidade'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BeneficiosRoute: typeof BeneficiosRoute
+  CadastroRoute: typeof CadastroRoute
+  ComoFuncionaRoute: typeof ComoFuncionaRoute
+  MaterialRoute: typeof MaterialRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/beneficios': {
+      id: '/beneficios'
+      path: '/beneficios'
+      fullPath: '/beneficios'
+      preLoaderRoute: typeof BeneficiosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cadastro': {
+      id: '/cadastro'
+      path: '/cadastro'
+      fullPath: '/cadastro'
+      preLoaderRoute: typeof CadastroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/como-funciona': {
+      id: '/como-funciona'
+      path: '/como-funciona'
+      fullPath: '/como-funciona'
+      preLoaderRoute: typeof ComoFuncionaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/material': {
+      id: '/material'
+      path: '/material'
+      fullPath: '/material'
+      preLoaderRoute: typeof MaterialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BeneficiosRoute: BeneficiosRoute,
+  CadastroRoute: CadastroRoute,
+  ComoFuncionaRoute: ComoFuncionaRoute,
+  MaterialRoute: MaterialRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
