@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1794589652813,
+      "tag": "0000_create_housing_registrations",
+      "breakpoints": true
+    }
+  ]
 }
