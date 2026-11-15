@@ -33,3 +33,4 @@ use the editor.
 - Use shared housing layout and section components for public pages; each content route defines its own metadata to keep navigation and sharing consistent.
 - Validate housing submissions with the shared Zod schema on both client and server, then insert through a public write-only server function; keep lead data inaccessible to visitors.
 - Treat the digital product offer as demonstrative until a real checkout and deliverable are supplied; never simulate payment or delivery.
+- Keep external guide checkout destinations in the shared housing configuration; registration stays independent of purchase and payment confirmation remains with the external provider.
