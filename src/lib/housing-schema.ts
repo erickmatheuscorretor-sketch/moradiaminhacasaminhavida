@@ -4,6 +4,7 @@ export const incomes = ["Até R$ 2.000", "R$ 2.001 a R$ 3.000", "R$ 3.001 a R$ 4
 export const employments = ["CLT", "Autônomo", "MEI", "Desempregado", "Aposentado"] as const;
 export const states = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"] as const;
 export const materialPrice = 19;
+export const materialCheckoutUrl = 'https://pay.kiwify.com.br/oLZI7gb';
 export const housingSchema = z.object({
   full_name: z.string().trim().min(3, "Informe seu nome completo.").max(120).refine(v => v.includes(" "), "Informe nome e sobrenome."),
   birth_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Informe uma data válida.").refine(v => { const date = new Date(v + "T00:00:00Z"); return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === v && date <= new Date() && date.getUTCFullYear() >= 1900; }, "Informe uma data de nascimento válida."),
